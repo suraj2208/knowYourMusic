@@ -4,19 +4,12 @@ import 'package:http/http.dart' as http;
 import '../models/music_model.dart';
 
 class MusicProvider {
-  /*final trackListURL =
-        "https://api.musixmatch.com/ws/1.1/chart.tracks.get?apikey=2d782bc7a52a41ba2fc1ef05b9cf40d7";
-    final trackDetailURL =
-        "https://api.musixmatch.com/ws/1.1/track.get?track_id=$trackID&apikey=2d782bc7a52a41ba2fc1ef05b9cf40d7";
-    final trackLyricsURL =
-        "https://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=$trackID&apikey=2d782bc7a52a41ba2fc1ef05b9cf40d7";*/
-
   //First API call
   Future<MusicModel> fetchMusic() async {
     print("Calling Api");
     try {
       final response = await http.get(
-          "https://api.musixmatch.com/ws/1.1/chart.tracks.get?apikey=f45a24f0c5c345f7554954cc0de7f3df");
+          "https://api.musixmatch.com/ws/1.1/chart.tracks.get?apikey=f45a24f0c5c345f7554954cc0de7****");
 
       print(response.statusCode);
 
@@ -36,9 +29,8 @@ class MusicProvider {
     print("Calling Api");
     try {
       final response = await http.get(
-          "https://api.musixmatch.com/ws/1.1/track.get?track_id=$trackID&apikey=f45a24f0c5c345f7554954cc0de7f3df");
+          "https://api.musixmatch.com/ws/1.1/track.get?track_id=$trackID&apikey=f45a24f0c5c345f7554954cc0de7****");
 
-      print(response.body);
       print(response.statusCode);
 
       if (response.statusCode == 200) {
@@ -57,9 +49,8 @@ class MusicProvider {
     print("Calling Api");
     try {
       final response = await http.get(
-          "https://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=$trackID&apikey=f45a24f0c5c345f7554954cc0de7f3df");
+          "https://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=$trackID&apikey=f45a24f0c5c345f7554954cc0de7****");
 
-      print(response.body);
       print(response.statusCode);
 
       if (response.statusCode == 200) {

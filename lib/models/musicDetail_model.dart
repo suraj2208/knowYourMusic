@@ -81,6 +81,7 @@ class Track {
     this.restricted,
     this.updatedTime,
     this.primaryGenres,
+    this.isBookmarked,
   });
 
   int trackId;
@@ -103,6 +104,7 @@ class Track {
   int restricted;
   DateTime updatedTime;
   PrimaryGenres primaryGenres;
+  bool isBookmarked;
 
   factory Track.fromJson(Map<String, dynamic> json) => Track(
         trackId: json["track_id"],

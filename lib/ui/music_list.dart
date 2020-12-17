@@ -1,6 +1,7 @@
 import 'package:MusicMix/bloc/connectivity_bloc.dart';
 import 'package:MusicMix/bloc/music_bloc.dart';
 import 'package:MusicMix/models/music_model.dart';
+import 'package:MusicMix/ui/bookmark_list.dart';
 import 'package:MusicMix/ui/music_details.dart';
 import 'package:flutter/material.dart';
 
@@ -14,16 +15,86 @@ class MusicList extends StatefulWidget {
 class _MusicListState extends State<MusicList> {
   @override
   Widget build(BuildContext context) {
+    final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
+    void _openDrawer() {
+      _scaffoldKey.currentState.openDrawer();
+    }
+
     bloc.fetchMusic(); //Function Call to sink data from api to stream
     connectivityBloc
         .connectivityStatus(); //Function Call to sink connectivity status to stream
     return Scaffold(
+        key: _scaffoldKey,
         appBar: AppBar(
-          backgroundColor: Colors.white,
+          leading: InkWell(
+            child: Icon(
+              Icons.dehaze_rounded,
+            ),
+            onTap: () {
+              _openDrawer();
+            },
+          ),
           centerTitle: true,
           title: Text(
             "Trending",
-            style: TextStyle(color: Colors.black),
+          ),
+          actions: [
+            InkWell(
+              child: Padding(
+                padding: const EdgeInsets.only(right: 15),
+                child: Icon(Icons.search),
+              ),
+              onTap: () {
+                showModalBottomSheet(
+                    context: context,
+                    builder: (context) {
+                      return Container(
+                        child: Padding(
+                          padding: const EdgeInsets.all(25.0),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Search",
+                                style: TextStyle(fontSize: 20),
+                              ),
+                              TextFormField(
+                                initialValue: "",
+                              ),
+                            ],
+                          ),
+                        ),
+                      );
+                    });
+              },
+            ),
+          ],
+        ),
+        drawer: Drawer(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              InkWell(
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 35.0),
+                  child: ListTile(
+                    leading: Text(
+                      "Bookmarks",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontStyle: FontStyle.italic,
+                        fontSize: 15,
+                      ),
+                    ),
+                  ),
+                ),
+                onTap: () {
+                  Navigator.pushNamed(context, BookmarkList.route);
+                },
+              ),
+            ],
           ),
         ),
         body: StreamBuilder(
@@ -63,8 +134,12 @@ class _MusicListState extends State<MusicList> {
               return ListTile(
                 onTap: () {
                   Navigator.of(context).pushNamed(MusicDetails.routeName,
-                      arguments: snapshot
-                          .data.message.body.trackList[index].track.trackId);
+                      arguments: {
+                        "trackID": snapshot
+                            .data.message.body.trackList[index].track.trackId,
+                        "trackName": snapshot
+                            .data.message.body.trackList[index].track.trackName
+                      } as Map);
                 },
                 leading: Icon(Icons.my_library_music_rounded),
                 title: Text(
