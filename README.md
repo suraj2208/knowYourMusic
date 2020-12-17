@@ -1,6 +1,24 @@
 # MusicMix
 
-A new Flutter project.
+MusicMix is a cross platform app, which allows a user to find details of any music such a singer name, lyrics etc and user can save his favorite tracks as bookmark for easier access.
+Here are some screenshots.
+.
+.
+
+![alt text](https://github.com/suraj2208/knowYourMusic/blob/main/Screenshots/Trending.jpg?raw=true "Trending")
+.
+.
+![alt text](https://github.com/suraj2208/knowYourMusic/blob/main/Screenshots/bookmark%20added.jpg)
+.
+.
+![alt text](https://github.com/suraj2208/knowYourMusic/blob/main/Screenshots/music%20info.jpg)
+.
+.
+![alt text](https://github.com/suraj2208/knowYourMusic/blob/main/Screenshots/bookmarks.jpg)
+.
+.
+
+
 
 ## Getting Started
 
