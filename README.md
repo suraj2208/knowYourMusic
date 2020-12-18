@@ -1,6 +1,7 @@
 # MusicMix
 
-MusicMix is a cross platform app, which allows a user to find details of any music such a singer name, lyrics etc and user can save his favorite tracks as bookmark for easier access.
+MusicMix is a cross platform app, developed using BLoc pattern, which allows a user to find details of any music such a singer name, lyrics etc and user can save his favorite tracks as bookmark for easier access.
+
 Here are some screenshots.
 .
 .
