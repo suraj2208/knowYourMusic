@@ -143,23 +143,51 @@ class _MusicDetailsState extends State<MusicDetails> {
         : ListView.builder(
             itemCount: headings.length,
             itemBuilder: (BuildContext ctx, int index) {
-              return Padding(
-                padding: const EdgeInsets.only(top: 20.0, left: 20.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      headings[index],
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                    ),
-                    Text(
-                      data[index],
-                      style: TextStyle(fontSize: 20),
-                    )
-                  ],
-                ),
-              );
+              if (index < data.length - 1) {
+                return Padding(
+                  padding: const EdgeInsets.all(15),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        headings[index],
+                        overflow: TextOverflow.fade,
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
+                      Container(
+                        child: Text(
+                          data[index],
+                          style: TextStyle(fontSize: 15),
+                          overflow: TextOverflow.fade,
+                        ),
+                      )
+                    ],
+                  ),
+                );
+              } else {
+                return Padding(
+                  padding: const EdgeInsets.all(15),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        headings[index],
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 20.0),
+                        child: Text(
+                          data[index],
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 15),
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              }
             },
           );
   }

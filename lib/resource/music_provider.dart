@@ -9,7 +9,7 @@ class MusicProvider {
     print("Calling Api");
     try {
       final response = await http.get(
-          "https://api.musixmatch.com/ws/1.1/chart.tracks.get?apikey=f45a24f0c5c345f7554954cc0de7****");
+          "https://api.musixmatch.com/ws/1.1/chart.tracks.get?country=in&apikey=f45a24f0c5c345f7554954cc0de7f3df");
 
       print(response.statusCode);
 
@@ -29,7 +29,7 @@ class MusicProvider {
     print("Calling Api");
     try {
       final response = await http.get(
-          "https://api.musixmatch.com/ws/1.1/track.get?track_id=$trackID&apikey=f45a24f0c5c345f7554954cc0de7****");
+          "https://api.musixmatch.com/ws/1.1/track.get?track_id=$trackID&apikey=f45a24f0c5c345f7554954cc0de7f3df");
 
       print(response.statusCode);
 
@@ -49,7 +49,7 @@ class MusicProvider {
     print("Calling Api");
     try {
       final response = await http.get(
-          "https://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=$trackID&apikey=f45a24f0c5c345f7554954cc0de7****");
+          "https://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=$trackID&apikey=f45a24f0c5c345f7554954cc0de7f3df");
 
       print(response.statusCode);
 
