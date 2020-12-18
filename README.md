@@ -9,10 +9,7 @@ Here are some screenshots.
 ![alt text](https://github.com/suraj2208/knowYourMusic/blob/main/Screenshots/Trending.jpg?raw=true "Trending")
 .
 .
-![alt text](https://github.com/suraj2208/knowYourMusic/blob/main/Screenshots/bookmark%20added.jpg)
-.
-.
-![alt text](https://github.com/suraj2208/knowYourMusic/blob/main/Screenshots/music%20info.jpg)
+![alt text](https://github.com/suraj2208/knowYourMusic/blob/main/Screenshots/details.jpg)
 .
 .
 ![alt text](https://github.com/suraj2208/knowYourMusic/blob/main/Screenshots/bookmarks.jpg)
